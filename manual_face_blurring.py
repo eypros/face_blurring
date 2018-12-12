@@ -92,7 +92,10 @@ def main():
     # OpenCV's selectROI function doesn't work for selecting multiple objects in Python
     # So we will call this function in a loop till we are done selecting all objects
     while True:
-        k = cv2.waitKey(0) & 0xFF  # 113: q, 114: r, 115: s
+        while True:
+            k = cv2.waitKey(0) & 0xFF  # 113: q, 114: r, 115: s
+            if k == 115 or k == 114:
+                break
         print(k)
         if k == 115:
             break
