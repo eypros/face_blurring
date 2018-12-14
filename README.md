@@ -20,8 +20,19 @@ I am hoping to populate this respository with a fully automatic face blurring mo
 
 ## How to use
 
-At the moment the only module working is *manual_face_blurring.py* which uses opencv
+### Manual face blurring
+
+Not technically limited to facial images as the ROI annotation is fully manual.
+
+The module *manual_face_blurring_v3.py* uses opencv
 for bounding box definition and KFC opencv tracker for bounding box propagation.
+
+Invoking the module is simple by using:
+
+*`python3 manual_face_blurring_v3.py "path/to/video" [--verbose]`*
+
+where verbose is the only optional parameter after the positional
+parameter for the video location
 
 It is a fully functional module with basic key functionality. Key being used are:
 
@@ -43,3 +54,25 @@ program to crack).
 <kbd>Enter</kbd> key stroke followed by <kbd>q</kbd> key stroke to
 terminate the ROI annotation.
 
+### Automatic face blurring
+
+This module uses a tensorflow object detection model from this
+[repository](https://github.com/yeephycho/tensorflow-face-detection)
+which has trained a mobilenet SSD(single shot multibox detector)
+trained on WIDERFACE dataset. This is quite small and fast face detector
+and seems to be quite effective also.
+
+Then a simple gaussian filter is applied to all bboxes with confidence
+score above a threshold (by default 0.35) and write the frames to a
+video file.
+
+it can be invoked by using:
+`python3 auto_face_blurring_v2.py "path/to/video"`
+
+Optional arguments are:
+* `--score-threshold` with default value `--score-threshold=0.35` which
+controls the number of bounging boxes to be blurred. All bboxes with
+confidence score below this threshold are ignored.
+* `--enlarge-factor` with default value `--enlarge-factor=0.1` which
+controls how much the actual facial bbox will be expanded. Default value
+equals to 10% for each bounding box in each direction.
