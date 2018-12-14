@@ -4,9 +4,11 @@
 
 This is an attempt to create a functional library of tools for blurring faces in videos.
 
-So far, mainly manual bounding box annotation is supported via opencv.
+Two different module are supported:
+* Fully manual face (or not only face) blurring
+* Fully automatic face blurring
 
-Nevertheless, this module supports:
+The manual module supports:
 * Multiple manual annotation of regions to be blurred
 * 1, 5, 10 and 100 frame skipping option (without
 blurring taken place for those frames that is)
@@ -14,9 +16,20 @@ blurring taken place for those frames that is)
 the end of file)
 * Basic key functionality for the above actions
 
-## What's to come in a (hopefully) near future
+The automatic module supports:
+* A parameter to choose which bboxes to consider
+* A parameter which controls the size of the blurring area
+* A fully automatic facial blurring
 
-I am hoping to populate this respository with a fully automatic face blurring module as well as a semi-automatic
+## Requirements
+
+* Manual mode
+
+Mainly *openCV*.
+
+* Automatic mode
+
+*OpenCV*, *numpy* and *tensorflow*.
 
 ## How to use
 
