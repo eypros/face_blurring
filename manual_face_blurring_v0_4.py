@@ -133,7 +133,7 @@ def get_rois(frame, verbose, wait_for_key=False):
                 break
         # k = cv2.waitKey(0) & 0xFF  # 113: q, 114: r, 115: s, t: 116, h: 104, 1: 49, 5: 53
         # print(k)
-        if k == 115:
+        if k == 115:  # 's'
             skip = -1
             # break
         elif k == 49:  # '1'
