@@ -1,4 +1,4 @@
-# Face blurring software v0.1
+# Face blurring software v0.2
 
 ## What has this project to offer
 
@@ -67,6 +67,9 @@ program to crack).
 <kbd>Enter</kbd> key stroke followed by <kbd>q</kbd> key stroke to
 terminate the ROI annotation.
 
+* For v0.4 there has been added the option to press 3 times (3x) the <kbd>Enter</kbd> to exit the ROI annotation mode and enter tracking mode with the annotated bboxes.
+* This module creates a new video file named _old_file_**_blurred**_.old_ext_ and it will complain if a file with that name already exists in folder.
+
 ### Automatic face blurring
 
 This module uses a tensorflow object detection model from this
@@ -89,3 +92,7 @@ confidence score below this threshold are ignored.
 * `--enlarge-factor` with default value `--enlarge-factor=0.1` which
 controls how much the actual facial bbox will be expanded. Default value
 equals to 10% for each bounding box in each direction.
+
+Remarks:
+
+* This module creates a new video file named _old_file_**_blurred_auto**._old_ext_.
