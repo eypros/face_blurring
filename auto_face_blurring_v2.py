@@ -89,7 +89,7 @@ def main():
     enlarge_factor = args.enlarge_factor
 
     split_name = os.path.splitext(os.path.basename(video_input))
-    video_output = os.path.join(os.path.dirname(video_input), '{}_new{}'.format(split_name[0], split_name[1]))
+    video_output = os.path.join(os.path.dirname(video_input), '{}_blurred_auto{}'.format(split_name[0], split_name[1]))
 
     # Path to frozen detection graph. This is the actual model that is used for the object detection.
     path_to_model = './model/frozen_inference_graph_face.pb'
